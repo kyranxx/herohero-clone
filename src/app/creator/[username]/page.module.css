@@ -1,0 +1,411 @@
+/* =========================================
+   Creator Profile Page - Mobile First
+   ========================================= */
+
+.page {
+    min-height: 100dvh;
+    background: var(--bg-primary);
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-md);
+    padding-top: calc(var(--space-md) + var(--safe-top));
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, transparent 100%);
+}
+
+.backBtn,
+.shareBtn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-glass);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-full);
+    color: white;
+    transition: all var(--transition-fast);
+}
+
+.backBtn:hover,
+.shareBtn:hover {
+    background: var(--bg-elevated);
+    transform: scale(1.05);
+}
+
+/* Cover Image */
+.coverContainer {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.coverImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.coverGradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to top, var(--bg-primary) 0%, transparent 100%);
+}
+
+/* Profile Section */
+.profileSection {
+    position: relative;
+    padding: 0 var(--space-md);
+    max-width: var(--max-width);
+    margin: -60px auto 0;
+}
+
+.avatarContainer {
+    position: relative;
+    display: inline-block;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: var(--radius-full);
+    border: 4px solid var(--bg-primary);
+    object-fit: cover;
+    box-shadow: var(--shadow-lg);
+}
+
+.profileInfo {
+    margin-top: var(--space-md);
+}
+
+.displayName {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.username {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+.bio {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-top: var(--space-md);
+}
+
+/* Stats */
+.stats {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+    padding: var(--space-md) 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.statValue {
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.statLabel {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.statDivider {
+    width: 1px;
+    height: 32px;
+    background: var(--border);
+}
+
+/* Subscribe Button */
+.subscribeBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    width: 100%;
+    padding: var(--space-md);
+    margin-top: var(--space-lg);
+    background: var(--accent);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-fast);
+}
+
+.subscribeBtn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-glow);
+}
+
+.subscribeBtn:active {
+    transform: translateY(0);
+}
+
+.subscribed {
+    background: var(--bg-tertiary) !important;
+    color: var(--success) !important;
+    border: 1px solid var(--border);
+}
+
+.subscribed:hover {
+    box-shadow: none;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: var(--space-xs);
+    padding: var(--space-md);
+    max-width: var(--max-width);
+    margin: var(--space-lg) auto 0;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+}
+
+.tab {
+    flex: 1;
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: transparent;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.tab:hover {
+    color: var(--text-primary);
+}
+
+.tabActive {
+    background: var(--bg-tertiary);
+    color: var(--text-primary) !important;
+}
+
+/* Content */
+.content {
+    padding: var(--space-md);
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding-bottom: var(--space-3xl);
+}
+
+/* Posts Grid */
+.postsGrid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.postCard {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    animation: slideUp 0.4s ease-out backwards;
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.postCard:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-light);
+    box-shadow: var(--shadow-md);
+}
+
+.postPreview {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+}
+
+.postImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.postCard:hover .postImage {
+    transform: scale(1.05);
+}
+
+.lockedOverlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.playIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    border-radius: var(--radius-full);
+    transition: all var(--transition-fast);
+}
+
+.postCard:hover .playIcon {
+    background: var(--accent);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.postInfo {
+    padding: var(--space-md);
+}
+
+.postTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: var(--space-sm);
+}
+
+.postMeta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.8125rem;
+    color: var(--text-tertiary);
+}
+
+/* About Section */
+.aboutSection {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.aboutCard {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    padding: var(--space-lg);
+}
+
+.aboutCard h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+}
+
+.aboutCard p {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.socialLinks {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.socialLink {
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    transition: all var(--transition-fast);
+}
+
+.socialLink:hover {
+    background: var(--bg-elevated);
+}
+
+.benefitsList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.benefitsList li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+}
+
+/* Desktop */
+@media (min-width: 769px) {
+    .coverContainer {
+        height: 280px;
+    }
+
+    .avatar {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profileSection {
+        margin-top: -80px;
+    }
+
+    .postsGrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Slide up animation */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

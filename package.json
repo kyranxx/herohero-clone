@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:console": "node scripts/check-console-errors.js"
   },
   "dependencies": {
     "next": "16.1.6",
@@ -19,6 +20,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
+    "puppeteer": "^24.37.1",
     "typescript": "^5"
   }
 }
