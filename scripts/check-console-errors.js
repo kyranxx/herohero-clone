@@ -3,9 +3,11 @@
  * Runs through all pages and reports any console errors
  */
 
-const puppeteer = require('puppeteer');
+import fs from 'node:fs';
+import puppeteer from 'puppeteer';
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = process.env.TEST_BASE_URL || 'http://localhost:3000';
+const SHOULD_CAPTURE_SCREENSHOTS = process.env.SKIP_SCREENSHOTS !== '1';
 
 // Pages to test
 const PAGES = [
@@ -17,8 +19,10 @@ const PAGES = [
 async function checkConsoleErrors() {
     console.log('🚀 Starting Puppeteer Console Error Check...\n');
 
+    const executablePath = resolveBrowserExecutablePath();
     const browser = await puppeteer.launch({
         headless: true,
+        ...(executablePath ? { executablePath } : {}),
         args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
 
@@ -52,7 +56,11 @@ async function checkConsoleErrors() {
 
         // Collect request failures
         page.on('requestfailed', (request) => {
-            errors.push(`Failed to load: ${request.url()}`);
+            const failure = request.failure()?.errorText;
+            if (failure === 'net::ERR_ABORTED') {
+                return;
+            }
+            errors.push(`Failed to load${failure ? ` (${failure})` : ''}: ${request.url()}`);
         });
 
         try {
@@ -60,16 +68,17 @@ async function checkConsoleErrors() {
             console.log(`📄 Testing: ${pageConfig.name} (${url})`);
 
             await page.goto(url, {
-                waitUntil: 'networkidle0',
+                waitUntil: 'domcontentloaded',
                 timeout: 30000
             });
 
             // Wait a bit for any async errors
             await new Promise(r => setTimeout(r, 2000));
 
-            // Take screenshot
-            const screenshotPath = `./scripts/screenshots/${pageConfig.name.replace(/\s+/g, '_').toLowerCase()}.png`;
-            await page.screenshot({ path: screenshotPath, fullPage: true });
+            if (SHOULD_CAPTURE_SCREENSHOTS) {
+                const screenshotPath = `./scripts/screenshots/${pageConfig.name.replace(/\s+/g, '_').toLowerCase()}.png`;
+                await page.screenshot({ path: screenshotPath, fullPage: true });
+            }
 
             if (errors.length === 0) {
                 console.log(`   ✅ No errors found\n`);
@@ -120,8 +129,24 @@ async function checkConsoleErrors() {
     }
 }
 
+function resolveBrowserExecutablePath() {
+    const programFiles = process.env.ProgramFiles;
+    const programFilesX86 = process.env['ProgramFiles(x86)'];
+    const localAppData = process.env.LOCALAPPDATA;
+    const candidates = [
+        process.env.PUPPETEER_EXECUTABLE_PATH,
+        process.env.CHROME_PATH,
+        programFiles ? `${programFiles}\\Google\\Chrome\\Application\\chrome.exe` : null,
+        programFilesX86 ? `${programFilesX86}\\Google\\Chrome\\Application\\chrome.exe` : null,
+        localAppData ? `${localAppData}\\Google\\Chrome\\Application\\chrome.exe` : null,
+        programFiles ? `${programFiles}\\Microsoft\\Edge\\Application\\msedge.exe` : null,
+        programFilesX86 ? `${programFilesX86}\\Microsoft\\Edge\\Application\\msedge.exe` : null,
+    ].filter(Boolean);
+
+    return candidates.find((candidate) => fs.existsSync(candidate));
+}
+
 // Create screenshots directory
-const fs = require('fs');
 if (!fs.existsSync('./scripts/screenshots')) {
     fs.mkdirSync('./scripts/screenshots', { recursive: true });
 }

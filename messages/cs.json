@@ -1,0 +1,72 @@
+{
+    "common": {
+        "appName": "herohero",
+        "signIn": "Přihlásit se",
+        "signUp": "Registrovat se",
+        "subscribe": "Odebírat",
+        "subscribed": "Odebírám",
+        "subscribers": "odběratelů",
+        "posts": "příspěvků",
+        "joined": "členství od",
+        "perMonth": "/měs.",
+        "fans": "fanoušků",
+        "comments": "komentářů",
+        "search": "Hledat tvůrce...",
+        "or": "nebo pokračovat přes",
+        "forgotPassword": "Zapomněli jste heslo?",
+        "noAccount": "Nemáte účet?",
+        "hasAccount": "Již máte účet?",
+        "createAccount": "Vytvořit účet"
+    },
+    "nav": {
+        "discover": "Objevit",
+        "following": "Sleduji",
+        "messages": "Zprávy",
+        "profile": "Profil"
+    },
+    "home": {
+        "heroTitle": "Podpoř tvůrce,",
+        "heroTitleAccent": "které miluješ",
+        "heroSubtitle": "Žádné reklamy. Žádný algoritmus. Jen autentický obsah."
+    },
+    "categories": {
+        "all": "Vše",
+        "art": "Umění",
+        "tech": "Tech",
+        "fitness": "Fitness",
+        "food": "Jídlo",
+        "music": "Hudba",
+        "gaming": "Gaming",
+        "education": "Vzdělávání"
+    },
+    "login": {
+        "welcomeBack": "Vítejte zpět! Přihlaste se a pokračujte.",
+        "joinCommunity": "Přidejte se ke komunitě tvůrců.",
+        "name": "Jméno",
+        "email": "Email",
+        "password": "Heslo",
+        "yourName": "Vaše jméno",
+        "google": "Google",
+        "twitter": "X (Twitter)"
+    },
+    "creator": {
+        "subscribeFor": "Odebírat za €{price}/měs.",
+        "subscribeToUnlock": "Odebírejte pro odemčení",
+        "about": "O profilu",
+        "postsTab": "Příspěvky",
+        "aboutTab": "Info"
+    },
+    "subscription": {
+        "title": "Předplatné zahrnuje",
+        "benefit1": "Přístup ke všem exkluzivním příspěvkům",
+        "benefit2": "Přímé zprávy",
+        "benefit3": "Brzký přístup k novému obsahu",
+        "benefit4": "Přímá podpora tvůrce"
+    },
+    "time": {
+        "hoursAgo": "před {count} hodinami",
+        "dayAgo": "před {count} dnem",
+        "daysAgo": "před {count} dny",
+        "weekAgo": "před {count} týdnem"
+    }
+}

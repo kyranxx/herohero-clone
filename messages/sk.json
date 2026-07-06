@@ -1,0 +1,72 @@
+{
+    "common": {
+        "appName": "herohero",
+        "signIn": "Prihlásiť sa",
+        "signUp": "Registrovať sa",
+        "subscribe": "Odoberať",
+        "subscribed": "Odoberám",
+        "subscribers": "odberateľov",
+        "posts": "príspevkov",
+        "joined": "členstvo od",
+        "perMonth": "/mes.",
+        "fans": "fanúšikov",
+        "comments": "komentárov",
+        "search": "Hľadať tvorcov...",
+        "or": "alebo pokračovať cez",
+        "forgotPassword": "Zabudli ste heslo?",
+        "noAccount": "Nemáte účet?",
+        "hasAccount": "Už máte účet?",
+        "createAccount": "Vytvoriť účet"
+    },
+    "nav": {
+        "discover": "Objaviť",
+        "following": "Sledujem",
+        "messages": "Správy",
+        "profile": "Profil"
+    },
+    "home": {
+        "heroTitle": "Podpor tvorcov,",
+        "heroTitleAccent": "ktorých miluješ",
+        "heroSubtitle": "Žiadne reklamy. Žiadny algoritmus. Len autentický obsah."
+    },
+    "categories": {
+        "all": "Všetko",
+        "art": "Umenie",
+        "tech": "Tech",
+        "fitness": "Fitness",
+        "food": "Jedlo",
+        "music": "Hudba",
+        "gaming": "Gaming",
+        "education": "Vzdelávanie"
+    },
+    "login": {
+        "welcomeBack": "Vitajte späť! Prihláste sa a pokračujte.",
+        "joinCommunity": "Pridajte sa ku komunite tvorcov.",
+        "name": "Meno",
+        "email": "Email",
+        "password": "Heslo",
+        "yourName": "Vaše meno",
+        "google": "Google",
+        "twitter": "X (Twitter)"
+    },
+    "creator": {
+        "subscribeFor": "Odoberať za €{price}/mes.",
+        "subscribeToUnlock": "Odoberajte pre odomknutie",
+        "about": "O profile",
+        "postsTab": "Príspevky",
+        "aboutTab": "Info"
+    },
+    "subscription": {
+        "title": "Predplatné zahŕňa",
+        "benefit1": "Prístup ku všetkým exkluzívnym príspevkom",
+        "benefit2": "Priame správy",
+        "benefit3": "Skorý prístup k novému obsahu",
+        "benefit4": "Priama podpora tvorcu"
+    },
+    "time": {
+        "hoursAgo": "pred {count} hodinami",
+        "dayAgo": "pred {count} dňom",
+        "daysAgo": "pred {count} dňami",
+        "weekAgo": "pred {count} týždňom"
+    }
+}

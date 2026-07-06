@@ -2,14 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Herohero | Support Your Favorite Creators",
-  description: "A distraction-free platform to support creators you love. No ads, no algorithm, just authentic content.",
-  keywords: ["creators", "subscription", "support", "content", "community"],
-  openGraph: {
-    title: "Herohero | Support Your Favorite Creators",
-    description: "A distraction-free platform to support creators you love.",
-    type: "website",
-  },
+  title: "Herohero | Podpor svojich obľúbených tvorcov",
+  description: "Platforma bez rušivých prvkov na podporu tvorcov, ktorých milujete.",
 };
 
 export const viewport: Viewport = {
@@ -25,11 +19,5 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body>
-        {children}
-      </body>
-    </html>
-  );
+  return children;
 }
