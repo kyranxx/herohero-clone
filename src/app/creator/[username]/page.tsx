@@ -158,7 +158,7 @@ export default function CreatorProfile() {
 
                     <div className={styles.stats}>
                         <div className={styles.stat}>
-                            <span className={styles.statValue}>{creator.subscribers.toLocaleString()}</span>
+                            <span className={styles.statValue}>{creator.subscribers.toLocaleString("en-US")}</span>
                             <span className={styles.statLabel}>subscribers</span>
                         </div>
                         <div className={styles.statDivider} />

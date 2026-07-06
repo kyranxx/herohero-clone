@@ -172,7 +172,7 @@ export default function Home() {
                                     <p className={styles.creatorBio}>{creator.bio}</p>
                                     <div className={styles.creatorMeta}>
                                         <span className={styles.subscribers}>
-                                            {creator.subscribers.toLocaleString()} {t('common.fans')}
+                                            {creator.subscribers.toLocaleString(locale)} {t('common.fans')}
                                         </span>
                                         <span className={styles.price}>
                                             €{creator.price}{t('common.perMonth')}
